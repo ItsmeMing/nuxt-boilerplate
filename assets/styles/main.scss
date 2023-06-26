@@ -1,0 +1,226 @@
+@import './_fonts.scss';
+@import './responsive.scss';
+@import './mixins.scss';
+@import './variables.scss';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 400;
+  color: #fff;
+}
+
+.sixth-bg-color {
+  background: linear-gradient(225deg, #2b2a23 0%, #1e201c 100%), linear-gradient(225deg, #1e40af 0%, #1e3a8a 100%);
+}
+
+.page-enter-active,
+.page-leave-active {
+  transition-duration: 0.2s;
+  transition-property: opacity filter;
+}
+.page-enter-from,
+.page-leave-to {
+  opacity: 0;
+  filter: blur(0.01rem);
+}
+
+.layout-enter-active,
+.layout-leave-active {
+  transition-duration: 0.2s;
+  transition-property: opacity filter;
+}
+.layout-enter-from,
+.layout-leave-to {
+  opacity: 0;
+  filter: blur(0.01rem);
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
+
+.base-font-size {
+  @include base-font-size;
+}
+
+.base-icon-size {
+  @include base-icon-size;
+}
+
+.base-height {
+  @include base-height;
+}
+
+.el-form-item {
+  .el-form-item__label {
+    color: $black;
+  }
+}
+
+.sixth-gradient-deep-blue-bg {
+  background: $gradient-deep-blue;
+}
+
+.el-switch.ml-2 {
+  margin-left: 0 !important;
+}
+
+.el-notification {
+  @include responsive(3xl) {
+    --el-notification-width: 360px !important;
+  }
+  @include responsive(4xl) {
+    --el-notification-width: 390px !important;
+  }
+  .el-notification__group {
+    .el-notification__content {
+      p {
+        text-align: left;
+      }
+    }
+  }
+}
+
+.el-form-item.is-error {
+  .el-input-number {
+    span {
+      --el-disabled-text-color: var(--el-color-danger);
+      --el-text-color-regular: var(--el-color-danger);
+      --el-color-primary: var(--el-color-danger);
+    }
+  }
+
+  .el-input__wrapper {
+    --el-select-input-color: var(--el-color-danger);
+    --el-select-input-focus-border-color: var(--el-color-danger);
+    --el-input-placeholder-color: var(--el-color-danger);
+    --el-text-color-placeholder: var(--el-color-danger);
+    --el-select-border-color-hover: var(--el-color-danger);
+    .el-icon {
+      color: var(--el-color-danger);
+    }
+  }
+  .el-form-item__error {
+    @include responsive(3xl) {
+      font-size: 14px !important;
+    }
+    @include responsive(4xl) {
+      font-size: 16px !important;
+    }
+  }
+}
+
+.el-icon__view,
+.el-icon__edit,
+.el-icon__delete {
+  border-radius: 50%;
+  transition-property: background;
+  transition-duration: 0.25s;
+}
+
+.el-icon__view {
+  &:hover {
+    background: rgb(#028d38, 0.2);
+  }
+}
+
+.el-icon__edit {
+  &:hover {
+    background: rgb(#1887c7, 0.2);
+  }
+}
+
+.el-icon__delete {
+  &:hover {
+    background: rgb(#e02d33, 0.2);
+  }
+}
+
+.el-loading-mask {
+  --el-mask-color: rgba(23, 38, 113, 0.7);
+  .el-loading-spinner {
+    svg {
+      circle {
+        --el-color-primary: #ff7704;
+      }
+    }
+  }
+}
+
+.el-popover.el-popper {
+  text-align: left !important;
+  word-break: normal !important;
+}
+
+.el-form-item {
+  margin-bottom: 0;
+  &.is-success {
+    .el-input__suffix {
+      .el-input__suffix-inner {
+        .el-input__icon.el-input__validateIcon {
+          color: $dark-green;
+        }
+      }
+    }
+  }
+  .el-form-item__label {
+    font-weight: 700;
+    @include base-font-size;
+    @include responsive(3xl) {
+      margin-bottom: 10px !important;
+    }
+    @include responsive(4xl) {
+      margin-bottom: 12px !important;
+    }
+  }
+}
+
+.el-dropdown {
+  .el-button-group {
+    button {
+      @include responsive(3xl) {
+        height: 40px;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+      @include responsive(4xl) {
+        height: 50px;
+        padding-left: 25px;
+        padding-right: 25px;
+      }
+      span {
+        @include base-font-size;
+      }
+    }
+  }
+}
+
+.el-dropdown-menu {
+  .el-dropdown-menu__item {
+    @include responsive(3xl) {
+      padding: 9px 20px;
+    }
+    @include responsive(4xl) {
+      padding: 13px 24px;
+    }
+    > * {
+      width: 100%;
+    }
+  }
+}
